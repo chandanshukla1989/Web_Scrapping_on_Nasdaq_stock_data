@@ -1,0 +1,21 @@
+#import libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+%matplotlib inline
+def plotgraph(ListB):
+    for item in ListB:
+        print(item)
+        data = pd.read_csv('d:\stock'+item+'.csv', usecols=['date','volume'], parse_dates=['date'])
+        data.set_index('date',inplace=True)
+        #read data from csv
+        #set date as index
+
+        #plot data
+        fig, ax = plt.subplots(figsize=(17,7))
+        data.plot(ax=ax)
+
+        #set ticks every week
+        ax.xaxis.set_major_locator(mdates.WeekdayLocator())
+        #set major ticks format
+        data.plot(kind='bar', ax=ax)
