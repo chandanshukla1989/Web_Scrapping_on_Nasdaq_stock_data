@@ -1,0 +1,20 @@
+import requests
+import csv
+import json    
+
+def importListB_CSV_chart_1m(ListB):
+    for symbol in ListB:
+        api_address='https://api.iextrading.com/1.0/stock/'+symbol+'/chart/1m'
+        url = api_address
+        json_data = requests.get(url).json()
+        csvfile = open('d:\stock'+symbol+'.csv','w',newline='')
+        count=0;
+        writer = csv.writer(csvfile)
+        for item in  json_data:
+            if item:
+                if count == 0:
+                    writer.writerow(item.keys())
+                    count = count+1
+                else:
+                    writer.writerow(item.values())
+    csvfile.close()
