@@ -1,0 +1,12 @@
+
+if __name__ == "__main__":
+    
+    ListA=['BABA', 'BIDU', 'GOOGL']
+    ListB=[]                            #initialise List B equals to listA
+    create_ListB(ListA)                    #create list B from list A - Asked in Question 1
+    extract_data_endpoint_reference(ListB) #Extract data from endpoint reference data, Asked in Question 2
+    ListB
+    importListB_CSV_chart_1m(ListB)        #using ListB get stock data for chart for month for each symbol in listB,Question: 3A
+    plotgraph(ListA)                       # Create & output a chart for BABA, BIDU and GOOGLE, Question : 3B
+    consolidate_news_csv(ListB)            #Extract an consolidate news, Question : 4 A
+    count_related(ListB)   
