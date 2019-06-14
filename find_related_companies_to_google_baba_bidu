@@ -1,0 +1,27 @@
+ import requests
+    import csv
+    import json  
+    ListA=['BABA', 'BIDU', 'GOOGL'] 
+    ListB=[]
+
+    def create_ListB(ListA):
+        for Item in ListA:
+
+
+            if Item in ListB:
+                ;
+
+
+            else:
+                api_address='https://api.iextrading.com/1.0/stock/' + Item + '/relevant'
+                url = api_address
+                print(url)
+                json_data = requests.get(url).json()
+                print(json_data['symbols'])
+                for symbol in json_data['symbols']:
+                    if symbol in ListB:
+                        ;
+                    else:
+                        ListB.append(symbol)
+        ListB.extend(ListA)
+        return ListB
